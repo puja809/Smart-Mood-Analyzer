@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Mood Analyzer</title>
-    <link href="styles.css" rel="stylesheet">
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script> <!-- AWS SDK -->
-</head>
-<body>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+    <!-- AWS SDK -->
+  </head>
+  <body>
     <nav class="container-fluid">
-        <ul>
-            <li><strong>Mood Analyzer and Recommendation Bot</strong></li>
-        </ul>
+      <ul>
+        <li><strong>Mood Analyzer and Recommendation Bot</strong></li>
+      </ul>
     </nav>
 
     <main class="container">
-        <div class="grid">
-            <section>
-                <hgroup>
-                    <h2 class="animated-text bounce-in">Hello Cloud Enthusiasts!</h2>
-                    <h3 class="fade-in">Let’s get started by uploading or capturing your picture. </h3>
-                </hgroup>
+      <div class="grid">
+        <section>
+          <hgroup>
+            <h2 class="animated-text bounce-in">Hello Cloud Enthusiasts!</h2>
+            <h3 class="fade-in">
+              Let’s get started by uploading or capturing your picture.
+            </h3>
+          </hgroup>
 
-                <p class="highlight-text zoom-in">We will analyze your mood from the image and give you personalized recommendations!</p>
+          <p class="highlight-text zoom-in">
+            We will analyze your mood from the image and give you personalized
+            recommendations!
+          </p>
 
-                <div class="actions">
-                    <label for="uploadPic" class="btn">Upload a Picture</label>
-                    <input type="file" id="uploadPic" accept="image/*" hidden>
-                    <button id="capturePic" class="btn">Capture Photo</button>
-                    <p class="note">* Photo should not exceed 5MB in size</p>
-                </div>
+          <div class="actions">
+            <label for="uploadPic" class="btn">Upload a Picture</label>
+            <input type="file" id="uploadPic" accept="image/*" hidden />
+            <button id="capturePic" class="btn">Capture Photo</button>
+            <p class="note">* Photo should not exceed 5MB in size</p>
+          </div>
 
-                <div id="progressContainer" class="progress-area">
-                    <progress id="progressBar" value="0" max="100"></progress>
-                    <p id="progressText">Processing...</p>
-                </div>
+          <div id="imageContainer" class="image-area">
+            <img id="imagePreview" src="" alt="Preview" style="display: none" />
+          </div>
 
-                <div id="result">
-                    <h3>Your Mood Analysis:</h3>
-                    <p id="moodMessage" class="result-text">You are feeling happy; let's work hard for your goal!</p>
-                    <p class="result-suggestion">Read this book -> <strong>ABS</strong></p>
-                    <p class="result-suggestion">Watch this movie -> <strong>XYZ</strong></p>
-                </div>
-            </section>
-        </div>
+          <div class="preview-actions">
+            <button id="retakePic" class="btn" style="display: none">
+              Retake
+            </button>
+            <button id="deletePic" class="btn" style="display: none">
+              Delete
+            </button>
+            <button id="nextBtn" class="btn" style="display: none">Next</button>
+          </div>
+
+          <div
+            id="progressContainer"
+            class="progress-area"
+            style="display: none"
+          >
+            <progress id="progressBar" value="0" max="100"></progress>
+            <p id="progressText">Processing...</p>
+          </div>
+
+          <div id="result" style="display: none">
+            <h3>Your Mood Analysis:</h3>
+            <p id="moodMessage" class="result-text">
+              You are feeling happy; let's work hard for your goal!
+            </p>
+            <p class="result-suggestion">
+              Read this book -> <strong>ABS</strong>
+            </p>
+            <p class="result-suggestion">
+              Watch this movie -> <strong>XYZ</strong>
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer class="container">
-        <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></small>
+      <small
+        ><a href="#">Privacy Policy</a> •
+        <a href="#">Terms of Service</a></small
+      >
     </footer>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
